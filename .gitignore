@@ -20,6 +20,10 @@ ENV/
 ai_tourism_api/app/storage/audio_cache/*
 !ai_tourism_api/app/storage/audio_cache/.gitkeep
 
+# Database files
+*.db
+*.sqlite3
+
 # OS generated files
 .DS_Store
 Thumbs.db
