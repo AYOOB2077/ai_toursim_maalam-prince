@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "castel",
+    "name": "Aqaba Castle (Aqaba Fort)",
+    "latitude": 29.5254,
+    "longitude": 35.0055,
+    "era": "Mamluk period, early 16th century",
+    "history": "A square fortress built by the Mamluks near Aqaba's shoreline to guard the pilgrimage and trade route to the Hijaz. It later played a role in the 1917 Arab Revolt, when it was captured from Ottoman forces. VERIFY AND EXPAND: confirm this matches the exact site your training photos show \u2014 there are other forts in Jordan and this entry should be checked before going live.",
+    "fun_facts": [
+      "The fort bears the crest of the Mamluk Sultan Qansuh al-Ghuri above its entrance."
+    ],
+    "summaries": {
+      "en": "A historic Mamluk-era fortress on the Aqaba waterfront, later seized during the 1917 Arab Revolt."
+    }
+  },
+  {
+    "slug": "flag",
+    "name": "Aqaba Flagpole (Great Arab Revolt Flagpole)",
+    "latitude": 29.5321,
+    "longitude": 35.0063,
+    "era": "Erected 2004",
+    "history": "A landmark flagpole on the Aqaba corniche flying the flag of the Great Arab Revolt, commemorating the 1916 uprising against Ottoman rule. It was among the tallest freestanding flagpoles in the world at the time it was built. VERIFY AND EXPAND before going live.",
+    "fun_facts": [
+      "The flag is visible from across the Gulf of Aqaba, including from Eilat and parts of the Sinai coast."
+    ],
+    "summaries": {
+      "en": "A towering flagpole on Aqaba's waterfront flying the flag of the Great Arab Revolt."
+    }
+  },
+  {
+    "slug": "patra",
+    "name": "Petra",
+    "latitude": 30.3285,
+    "longitude": 35.4444,
+    "era": "Nabataean Kingdom, 4th century BC onward",
+    "history": "An ancient city carved into rose-colored sandstone cliffs, once the capital of the Nabataean Kingdom and a major hub on the incense trade routes. Its most famous structure, Al-Khazneh (the Treasury), is reached through a narrow gorge called the Siq. VERIFY AND EXPAND before going live.",
+    "fun_facts": [
+      "Petra was named a UNESCO World Heritage Site in 1985 and one of the New Seven Wonders of the World in 2007."
+    ],
+    "summaries": {
+      "en": "The rock-carved Nabataean capital, reached through a narrow sandstone gorge, famed for the facade of Al-Khazneh."
+    }
+  },
+  {
+    "slug": "wady ram",
+    "name": "Wadi Rum",
+    "latitude": 29.5324,
+    "longitude": 35.4194,
+    "era": "Inhabited since prehistoric times; sacred to the Nabataeans",
+    "history": "A vast desert valley of sandstone and granite carved by wind and water, home to ancient rock inscriptions left by travelers over thousands of years. It has long been associated with T.E. Lawrence's role in the Arab Revolt. VERIFY AND EXPAND before going live.",
+    "fun_facts": [
+      "Wadi Rum is a UNESCO World Heritage Site and has been used as a filming location for several Mars-set movies."
+    ],
+    "summaries": {
+      "en": "A dramatic desert valley of towering sandstone mountains, long inhabited and etched with ancient rock art."
+    }
+  }
+]

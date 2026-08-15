@@ -1,0 +1,15 @@
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+extraPaths = [
+    ".",
+    ".venv/Lib/site-packages"
+]
+reportMissingTypeStubs = false
+
+[tool.pyrefly]
+venv-path = ".venv"
+search-paths = [
+    ".",
+    ".venv/Lib/site-packages"
+]

@@ -1,0 +1,19 @@
+[tool.pyright]
+venvPath = "ai_tourism_api"
+venv = ".venv"
+include = ["ai_tourism_api"]
+extraPaths = [
+    "ai_tourism_api",
+    "ai_tourism_api/.venv/Lib/site-packages"
+]
+executionEnvironments = [
+    { root = "ai_tourism_api", extraPaths = ["ai_tourism_api", "ai_tourism_api/.venv/Lib/site-packages"] }
+]
+reportMissingTypeStubs = false
+
+[tool.pyrefly]
+venv-path = "ai_tourism_api/.venv"
+search-paths = [
+    "ai_tourism_api",
+    "ai_tourism_api/.venv/Lib/site-packages"
+]

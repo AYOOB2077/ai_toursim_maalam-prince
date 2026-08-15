@@ -1,0 +1,21 @@
+{
+  "include": [
+    "ai_tourism_api"
+  ],
+  "executionEnvironments": [
+    {
+      "root": "ai_tourism_api",
+      "extraPaths": [
+        "ai_tourism_api",
+        "ai_tourism_api/.venv/Lib/site-packages"
+      ]
+    }
+  ],
+  "venvPath": "ai_tourism_api",
+  "venv": ".venv",
+  "extraPaths": [
+    "ai_tourism_api",
+    "ai_tourism_api/.venv/Lib/site-packages"
+  ],
+  "reportMissingTypeStubs": false
+}

@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+*.env.*
+!.env.example
+
+# Editor directories
+.vscode/
+.idea/
+
+# Audio Cache & temporary storage
+ai_tourism_api/app/storage/audio_cache/*
+!ai_tourism_api/app/storage/audio_cache/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db
