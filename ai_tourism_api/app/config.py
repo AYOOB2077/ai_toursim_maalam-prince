@@ -17,7 +17,7 @@ class Settings:
     # --- General -------------------------------------------------------
     APP_NAME: str = "AI Tourism Backend API"
     ENV: str = os.getenv("ENV", "development")  # development | production
-    API_KEY: str = os.getenv("API_KEY", "")  # simple shared-secret auth for the mobile app
+    API_KEY: str = os.getenv("API_KEY", "dev-secret-key")  # simple shared-secret auth for the mobile app
 
     # --- Vision (Layer 1) -----------------------------------------------
     # Option A (default): load from a local file baked into the image/repo.
