@@ -18,18 +18,17 @@ import logging
 import os
 from contextlib import asynccontextmanager
 
-from fastapi import Depends, FastAPI, File, Form, HTTPException, Header, UploadFile
+from fastapi import APIRouter, Depends, FastAPI, File, Form, HTTPException, UploadFile, status, Security
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from sqlalchemy.orm import Session
 from fastapi.security import APIKeyHeader
+from sqlalchemy.orm import Session
+
 from app.config import settings
 from app.database.session import get_db, init_db
 from app.orchestrator import run_pipeline
 from app.schemas import HealthResponse, RecognizeResponse
 from app.vision.model import get_vision_service
-
-from contextlib import asynccontextmanager
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -57,14 +56,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --- Security Dependency ---
+api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 
-def check_api_key(x_api_key: str | None = Header(default=None)):
-    """Simple shared-secret auth. Skipped if API_KEY is unset (local dev)."""
-    if settings.API_KEY and x_api_key != settings.API_KEY:
-        raise HTTPException(status_code=401, detail="Invalid or missing X-API-Key header.")
+def get_api_key(api_key: str = Security(api_key_header)) -> str:
+    if not api_key or api_key != settings.API_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or missing API Key"
+        )
+    return api_key
+
+# Create an APIRouter and apply the security dependency globally to it
+api_router = APIRouter(dependencies=[Depends(get_api_key)])
 
 
-@app.get("/health", response_model=HealthResponse)
+@api_router.get("/health", response_model=HealthResponse)
 def health():
     try:
         vision = get_vision_service()
@@ -75,7 +82,7 @@ def health():
         return HealthResponse(status=f"vision_error: {exc}", vision_model_loaded=False, num_classes=0)
 
 
-@app.post("/recognize", response_model=RecognizeResponse, dependencies=[Depends(check_api_key)])
+@api_router.post("/recognize", response_model=RecognizeResponse)
 async def recognize(
     image: UploadFile = File(..., description="Landmark photo, JPEG/PNG"),
     latitude: float | None = Form(default=None),
@@ -101,9 +108,13 @@ async def recognize(
     return RecognizeResponse(**result)
 
 
-@app.get("/audio/{filename}")
+@api_router.get("/audio/{filename}")
 def get_audio(filename: str):
     path = os.path.join(settings.AUDIO_CACHE_DIR, filename)
     if not os.path.exists(path):
         raise HTTPException(status_code=404, detail="Audio file not found.")
     return FileResponse(path, media_type="audio/mpeg")
+
+
+# Include the protected router in the main app
+app.include_router(api_router)
