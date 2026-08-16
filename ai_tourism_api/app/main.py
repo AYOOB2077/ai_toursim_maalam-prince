@@ -16,12 +16,13 @@ Endpoints:
 """
 import logging
 import os
+from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Header, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
-
+from fastapi.security import APIKeyHeader
 from app.config import settings
 from app.database.session import get_db, init_db
 from app.orchestrator import run_pipeline
