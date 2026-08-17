@@ -114,7 +114,10 @@ def get_audio(filename: str):
     if not os.path.exists(path):
         raise HTTPException(status_code=404, detail="Audio file not found.")
     return FileResponse(path, media_type="audio/mpeg")
-
+    
+@app.get("/")
+def read_root():
+    return {"status": "success", "message": "Maalam API is Ready"}
 
 # Include the protected router in the main app
 app.include_router(api_router)
